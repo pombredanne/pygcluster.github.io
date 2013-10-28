@@ -1,0 +1,31 @@
+.. pyGCluster:
+
+.. default-domain:: py
+
+#################
+Module pyGCluster
+#################
+
+.. automodule:: pyGCluster
+
+.. autoclass:: Cluster()
+
+   .. automethod:: __init__
+
+   .. automethod:: merge
+
+   .. automethod:: resample
+
+   .. automethod:: bar_plot
+
+   .. automethod:: _get_most_frequent_clusters
+
+   .. automethod:: build_nodemap
+
+   .. automethod:: write_dot
+
+   .. automethod:: draw_heat_maps
+
+   .. automethod:: determine_communities
+   
+   .. automethod:: frequencies

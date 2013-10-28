@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Module pyGCluster &mdash; pyGCluster 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyGCluster 0.2 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to pyGCluster’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyGCluster’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-pyGCluster">
+<span id="module-pygcluster"></span><h1>Module pyGCluster<a class="headerlink" href="#module-pyGCluster" title="Permalink to this headline">¶</a></h1>
+<p>The class <a class="reference internal" href="#pyGCluster.Cluster" title="pyGCluster.Cluster"><tt class="xref py py-class docutils literal"><span class="pre">Cluster</span></tt></a> is a data container
+for ... that holds several functions to allow for
+rapid resampling and ...</p>
+<p>Example:</p>
+<blockquote>
+<div><p>Its structure is :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">overview</span><span class="p">(</span><span class="n">pyGCluster</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">{</span>
+<span class="gp">... </span> <span class="s">&#39;Identifiers&#39;</span> <span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="n">fastaID1</span><span class="p">,</span> <span class="n">fastaID2</span> <span class="p">]),</span>
+<span class="gp">... </span> <span class="s">&#39;Conditions&#39;</span>  <span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="n">cond1</span><span class="p">,</span> <span class="n">cond2</span> <span class="p">]),</span>
+<span class="gp">... </span> <span class="s">&#39;Values&#39;</span>      <span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="p">[</span><span class="n">v1</span><span class="o">.</span><span class="n">cond1</span> <span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">cond2</span><span class="p">],</span> <span class="p">[</span><span class="n">v2</span><span class="o">.</span><span class="n">cond1</span><span class="p">,</span> <span class="n">v2</span><span class="o">.</span><span class="n">cond2</span><span class="p">]</span> <span class="p">,</span> <span class="o">...</span> <span class="p">]),</span>
+<span class="gp">... </span> <span class="s">&#39;Std&#39;</span>         <span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="p">[</span><span class="n">s1</span><span class="o">.</span><span class="n">cond1</span> <span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">cond2</span><span class="p">],</span> <span class="p">[</span><span class="n">s2</span><span class="o">.</span><span class="n">cond1</span><span class="p">,</span> <span class="n">s2</span><span class="o">.</span><span class="n">cond2</span><span class="p">]</span> <span class="p">,</span> <span class="o">...</span> <span class="p">]),</span>
+<span class="gp">... </span> <span class="s">&#39;ClusterIDs&#39;</span>     <span class="p">:</span>  <span class="p">{</span> 
+<span class="gp">... </span>                     <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="gp">... </span>                  <span class="p">},</span>
+<span class="gp">... </span> <span class="s">&#39;Methods&#39;</span>         <span class="p">:</span>  <span class="p">[</span> <span class="s">&#39;Average - Euclidean&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span> <span class="p">],</span>
+<span class="gp">... </span> <span class="s">&#39;Pcounter&#39;</span>        <span class="p">:</span>  <span class="p">{</span> 
+<span class="gp">... </span>                     <span class="s">&#39;Average - Euclidean&#39;</span> <span class="p">:</span> <span class="n">xxx</span> <span class="p">,</span> 
+<span class="gp">... </span>                  <span class="p">},</span>                                 <span class="c"># default dict !!</span>
+<span class="gp">... </span> <span class="s">&#39;Data&#39;</span>        <span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span>
+<span class="gp">... </span>                         <span class="p">[</span> <span class="n">counter_method0</span><span class="p">,</span> <span class="n">counter_method1</span><span class="p">],</span> <span class="c"># counters for ClusterIDs </span>
+<span class="gp">... </span>                         <span class="p">[</span> <span class="n">counter_method0</span><span class="p">,</span> <span class="n">counter_method1</span><span class="p">],</span>
+<span class="gp">... </span>                         <span class="p">[</span> <span class="p">]</span>
+<span class="gp">... </span>                  <span class="p">)</span> <span class="c"># Counters of ClusterIDs,</span>
+<span class="gp">... </span>                    <span class="c"># while counter_method0 belongs to self[&#39;Methods][0]</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Otherwise, yes ...</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">add the other informations, such as lookup and reverse lookup dicts</p>
+</div>
+<dl class="class">
+<dt id="pyGCluster.Cluster">
+<em class="property">class </em><tt class="descclassname">pyGCluster.</tt><tt class="descname">Cluster</tt><a class="headerlink" href="#pyGCluster.Cluster" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyGCluster.Cluster.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>data=None</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes pyGCluster.Cluster class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>dict</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<p>the data dict <strong>has</strong> to have the following structure</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="n">Identifier1</span> <span class="p">:</span> <span class="p">{</span> 
+<span class="gp">... </span>                           <span class="n">condition1</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">nominator</span> <span class="p">,</span> <span class="n">nominator_std</span> <span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">denominator_std</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition2</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">nominator</span> <span class="p">,</span> <span class="n">nominator_std</span> <span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">denominator_std</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition4</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">nominator</span> <span class="p">,</span> <span class="n">nominator_std</span> <span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">denominator_std</span> <span class="p">),</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>           <span class="n">Identifier2</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                           <span class="n">condition2</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">nominator</span> <span class="p">,</span> <span class="n">nominator_std</span> <span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">denominator_std</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition3</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">nominator</span> <span class="p">,</span> <span class="n">nominator_std</span> <span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">denominator_std</span> <span class="p">),</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<p># for testing reasons, fill denominator with 1 and denominator_std with 0</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cluster Class can be initilized empty and filled using <a class="reference internal" href="#pyGCluster.Cluster.merge" title="pyGCluster.Cluster.merge"><tt class="xref py py-func docutils literal"><span class="pre">merge()</span></tt></a>:</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.merge">
+<tt class="descname">merge</tt><big>(</big><em>path=None</em>, <em>_tmpResampledClusterDict=None</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>WORKS!!!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.resample">
+<tt class="descname">resample</tt><big>(</big><em>distance=None</em>, <em>linkage=None</em>, <em>iterations=10000</em>, <em>minClusterSize=4</em>, <em>minClusterFrequency=0.001</em>, <em>picklePrefix=None</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.resample" title="Permalink to this definition">¶</a></dt>
+<dd><p>inject noise &amp; exec hierarchical clustering &amp; filter 0.1 % of threshold</p>
+<p>Currently, the original data is never used for clustering, 
+but immediately altered via gauss-distribution.</p>
+<ol class="arabic simple">
+<li>alter data according to stdev</li>
+<li>calculate linkage matrix (via hierarchy.linkage)</li>
+<li>translate linkage matrix and store clusters in array Data</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>distance</strong> (<em>string</em>) &#8211; distance method, e.g. &#8216;euclidean&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.bar_plot">
+<tt class="descname">bar_plot</tt><big>(</big><em>path_filenameOfHist_s</em>, <em>minClusterSize=4</em>, <em>topX=None</em>, <em>topP=0.01</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.bar_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plot barplot: which cluster was found by which algorithm, and with what frequency?
+x-axis: clusters, sorted by size; colors represent each algorithm
+y-axis: frequencies</p>
+<p>e.g.:</p>
+<div class="line-block">
+<div class="line">the resampling result was (self[&#8216;Pcouter&#8217;] = 1000):</div>
+<div class="line-block">
+<div class="line">average     ward    -&gt;      divided by Pcounter:</div>
+</div>
+<div class="line">cluster1    99          100     -&gt;      0.099    0.100</div>
+<div class="line">cluster2    20          30      -&gt;      0.020    0.030</div>
+<div class="line">cluster3    35          40      -&gt;      0.035    0.040</div>
+<div class="line">cluster4    10          11      -&gt;      0.001    0.001</div>
+</div>
+<div class="line-block">
+<div class="line">matrix used for plotting is created of the following list (percent):</div>
+<div class="line">[9.9,10.0, 2.0,3.0, 3.5,4.0, 1.0,1.1]</div>
+</div>
+<div class="line-block">
+<div class="line">matrix for barplot (nrow = 2):</div>
+<div class="line-block">
+<div class="line">cluster1    cluster2        cluster3        cluster4</div>
+</div>
+<div class="line">method1     9.9         2.0             3.5             1.0</div>
+<div class="line">method2     10.0        3.0             4.0             1.1</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster._get_most_frequent_clusters">
+<tt class="descname">_get_most_frequent_clusters</tt><big>(</big><em>minClusterSize=4</em>, <em>topX=None</em>, <em>topP=0.01</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster._get_most_frequent_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the most frequent clusters. filters either according to a frequency-threshold or gets the top X clusters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>minClusterSize</strong> &#8211; only clusters bigger or equal than threshold are considered; e.g. 6</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">all clusters of size 2 have a frequency of 1.0 and they occur a lot ...</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topP</strong> (<em>float</em>) &#8211; get all clusters with a max frequency above threshold, e.g. 0.5 =&gt; 50%</li>
+<li><strong>topX</strong> (<em>float</em>) &#8211; get the top X clusters (sorted by frequency)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only the max(frequencies) matters; a single frequency above threshold is sufficient to include that cluster.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List with indices of the most frequent clusters</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.build_nodemap">
+<tt class="descname">build_nodemap</tt><big>(</big><em>maxClusterSize=10000</em>, <em>minClusterSize=4</em>, <em>topX=None</em>, <em>topP=0.01</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.build_nodemap" title="Permalink to this definition">¶</a></dt>
+<dd><p>description ...</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.write_dot">
+<tt class="descname">write_dot</tt><big>(</big><em>prefix_filenameDOT_s</em>, <em>progs_l=None</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.write_dot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.draw_heat_maps">
+<tt class="descname">draw_heat_maps</tt><big>(</big><em>folder</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.draw_heat_maps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.determine_communities">
+<tt class="descname">determine_communities</tt><big>(</big><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.determine_communities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented yet ...</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyGCluster.Cluster.frequencies">
+<tt class="descname">frequencies</tt><big>(</big><em>identifier=None</em>, <em>index=None</em>, <em>cluster=None</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.frequencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the frequencies for a given identifier (e.g. gene or FastaID) 
+as dictionary or <cite>None</cite> if identifier is not part of the data set, 
+index out of range or cluster was not found during iteration.</p>
+<p>Example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">frequencies</span><span class="p">(</span> <span class="n">identifier</span> <span class="o">=</span> <span class="s">&#39;jgi|Chlre4|513072|au5.g3286_t1&#39;</span> <span class="p">)</span>
+<span class="gp">... </span><span class="n">defaultdict</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;float&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;average-correlation&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s">&#39;complete-correlation&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> 
+<span class="gp">... </span><span class="s">&#39;centroid-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0015</span><span class="p">,</span> <span class="s">&#39;median-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0064666666666666666</span><span class="p">,</span> 
+<span class="gp">... </span><span class="s">&#39;ward-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0041333333333333335</span><span class="p">,</span> <span class="s">&#39;weighted-correlation&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> 
+<span class="gp">... </span><span class="s">&#39;complete-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0014</span><span class="p">,</span> <span class="s">&#39;weighted-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0066333333333333331</span><span class="p">,</span> 
+<span class="gp">... </span><span class="s">&#39;average-euclidean&#39;</span><span class="p">:</span> <span class="mf">0.0020333333333333332</span><span class="p">})</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>string</em>) &#8211; search frequencies by identifier input</li>
+<li><strong>index</strong> (<em>int</em>) &#8211; search frequencies by identifier index input</li>
+<li><strong>cluster</strong> (<em>tuple of ints</em>) &#8211; search frequencies by cluster input</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict that contains the frequencies</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">identifier is not working, one would expect 
+100%+ since root contains all</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pyGCluster&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pyGCluster.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyGCluster’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Daniel Jaeger and Christian Fufezan.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
