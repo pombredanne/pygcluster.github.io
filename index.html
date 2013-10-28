@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to pyGCluster’s documentation! &mdash; pyGCluster 0.2 documentation</title>
+    <title>Welcome to pyGCluster’s documentation! &mdash; pyGCluster 0.18.4 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.2',
+        URL_ROOT:    './',
+        VERSION:     '0.18.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,8 +23,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="pyGCluster 0.2 documentation" href="#" />
-    <link rel="next" title="Module pyGCluster" href="pyGCluster.html" /> 
+    <link rel="top" title="pyGCluster 0.18.4 documentation" href="#" />
+    <link rel="next" title="1. Introduction" href="intro.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,9 +37,9 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyGCluster.html" title="Module pyGCluster"
+          <a href="intro.html" title="1. Introduction"
              accesskey="N">next</a> |</li>
-        <li><a href="#">pyGCluster 0.2 documentation</a> &raquo;</li> 
+        <li><a href="#">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -55,7 +53,31 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pyGCluster.html">Module pyGCluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#algorithm-workflow">1.1. Algorithm Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#general-information">1.2. General information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#implementation">1.3. Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#download">1.4. Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#citation">1.5. Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#installation">1.6. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#references">1.7. References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyGCluster.html">2. Module pyGCluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">3. Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#clustering">3.1. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#clustered-data-visualization">3.2. Clustered data visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">4. Example scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#functionality-check">4.1. Functionality check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#testscripts-to-demonstrate-pygcluster">4.2. Testscripts to demonstrate pyGCluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#module-plotCommunities">4.3. Plot communities from a pyGCluster pkl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#module-getpyGPickleInfo">4.4. Retrieve pyGCluster pkl info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#module-simpleExpressionMap">4.5. Plot simple expression map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nodemap-and-expression-map-example">4.6. Nodemap and expression map example</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -83,8 +105,8 @@
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="pyGCluster.html"
-                        title="next chapter">Module pyGCluster</a></p>
+  <p class="topless"><a href="intro.html"
+                        title="next chapter">1. Introduction</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -117,14 +139,14 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="pyGCluster.html" title="Module pyGCluster"
+          <a href="intro.html" title="1. Introduction"
              >next</a> |</li>
-        <li><a href="#">pyGCluster 0.2 documentation</a> &raquo;</li> 
+        <li><a href="#">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2012, Daniel Jaeger and Christian Fufezan.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2013, Daniel Jaeger, Johannes Barth, Anna Niehues and Christian Fufezan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>
