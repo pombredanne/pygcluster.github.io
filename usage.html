@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Usage &mdash; pyGCluster 0.18.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.18.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyGCluster 0.18.4 documentation" href="index.html" />
+    <link rel="next" title="4. Example scripts" href="examples.html" />
+    <link rel="prev" title="2. Module pyGCluster" href="pyGCluster.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="4. Example scripts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyGCluster.html" title="2. Module pyGCluster"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="usage">
+<h1>3. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>This Chapter deals with some features of pyGCluster and explains the basic
+usage.</p>
+<p>The following examples are executed within the Python console
+(indicated by &#8220;&gt;&gt;&gt;&#8221; ) but can equally be incorporated in standalone scripts.</p>
+<p>pyGCluster is imported and initialized like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyGCluster</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span> <span class="o">=</span> <span class="n">pyGCluster</span><span class="o">.</span><span class="n">Cluster</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="clustering">
+<h2>3.1. Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparing-input-data">
+<h3>3.1.1. preparing input data<a class="headerlink" href="#preparing-input-data" title="Permalink to this headline">¶</a></h3>
+<p>The pyGCuster input has to be nested python dictionary with the following structure</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="n">Identifier1</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                           <span class="n">condition1</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean11</span><span class="p">,</span> <span class="n">sd11</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition2</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean12</span><span class="p">,</span> <span class="n">sd12</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition3</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean13</span><span class="p">,</span> <span class="n">sd13</span> <span class="p">),</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>           <span class="n">Identifier2</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                           <span class="n">condition1</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean21</span><span class="p">,</span> <span class="n">sd21</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition2</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean22</span><span class="p">,</span> <span class="n">sd22</span> <span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">condition3</span> <span class="p">:</span>  <span class="p">(</span> <span class="n">mean23</span><span class="p">,</span> <span class="n">sd23</span> <span class="p">),</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyGCluster</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span> <span class="o">=</span> <span class="n">pyGCluster</span><span class="o">.</span><span class="n">Cluster</span><span class="p">(</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If any condition for an identifier in the &#8220;nested_data_dict&#8221;-dict is missing,
+this entry is discarded, i.e. not imported into the Cluster Class.
+This is because pyGCluster does not implement any missing value estimation.
+One possible solution is to replace missing values by a mean value and a standard
+deviation that is representative for the complete data range in the given condition.</p>
+</div>
+</div>
+<div class="section" id="clustering-using-do-it-all">
+<h3>3.1.2. clustering using do_it_all<a class="headerlink" href="#clustering-using-do-it-all" title="Permalink to this headline">¶</a></h3>
+<p>A simple way to cluster away and to print the basic plots is to evoke
+<a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.do_it_all" title="pyGCluster.Cluster.do_it_all"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.do_it_all()</span></tt></a>. This function sets all
+important parameters for clustering and plotting. E.g.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">do_it_all</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">distances</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;euclidean&#39;</span><span class="p">,</span> <span class="s">&#39;correlation&#39;</span><span class="p">,</span> <span class="s">&#39;minkowski&#39;</span> <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">linkages</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;complete&#39;</span><span class="p">,</span> <span class="s">&#39;average&#39;</span><span class="p">,</span> <span class="s">&#39;ward&#39;</span> <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">cpus_2_use</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">iter_max</span> <span class="o">=</span> <span class="mi">250000</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">top_X_clusters</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">threshold_4_the_lowest_max_freq</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">min_value_4_expression_map</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">max_value_4_expression_map</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">color_gradient</span> <span class="o">=</span> <span class="s">&#39;1337_2&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">box_style</span> <span class="o">=</span> <span class="s">&#39;classic&#39;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For all available distance metrics and linkage methods,
+see the documentation of SciPy,
+sections scipy.spatial.distance and scipy.cluster.hierarchy.linkage.</p>
+</div>
+<div class="section" id="clustering-using-resample">
+<h3>3.1.3. clustering using resample<a class="headerlink" href="#clustering-using-resample" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively, one can cluster only by using the <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.resample" title="pyGCluster.Cluster.resample"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.resample()</span></tt></a> function.
+As for <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.do_it_all" title="pyGCluster.Cluster.do_it_all"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.do_it_all()</span></tt></a>, one can specify a series of parameters.
+The minimal set is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;correlation&#39;</span><span class="p">,</span> <span class="s">&#39;euclidean&#39;</span><span class="p">,</span> <span class="s">&#39;minkowski&#39;</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linkages</span>   <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;complete&#39;</span><span class="p">,</span> <span class="s">&#39;average&#39;</span><span class="p">,</span> <span class="s">&#39;ward&#39;</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>   <span class="n">distances</span>       <span class="o">=</span> <span class="n">distances</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">linkages</span>        <span class="o">=</span> <span class="n">linkages</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">pickle_filename</span> <span class="o">=</span> <span class="s">&#39;pyGCluster_resampled.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If no pickle_filename is specified, no pickle will be written!</p>
+</div>
+</div>
+<div class="section" id="saving-the-clustered-data">
+<h3>3.1.4. saving the clustered data<a class="headerlink" href="#saving-the-clustered-data" title="Permalink to this headline">¶</a></h3>
+<p>Generally, the results are pickled into the working directory by calling
+<a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.save" title="pyGCluster.Cluster.save"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.save()</span></tt></a></p>
+</div>
+<div class="section" id="loading-the-clustered-data">
+<h3>3.1.5. loading the clustered data<a class="headerlink" href="#loading-the-clustered-data" title="Permalink to this headline">¶</a></h3>
+<p>Clustering requires some time and is executed on servers or workstations.
+After successful clustering a pickle object is stored that can be analyzed
+on a regular Desktop machine. The pyGCluster Python pickle object,
+can be loaded and processed as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="s">&#39;path_to_pyGCluster_pkl_file.pkl&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Before starting, it may be necessary to define an output directory or
+&#8216;Working directory&#8217; in the <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster" title="pyGCluster.Cluster"><tt class="xref py py-obj docutils literal"><span class="pre">pyGCluster.Cluster</span></tt></a> object, where all the
+figures will be plotted into.</p>
+<p>This can be done by simply editing the keys in the <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster" title="pyGCluster.Cluster"><tt class="xref py py-obj docutils literal"><span class="pre">pyGCluster.Cluster</span></tt></a>
+object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="p">[</span><span class="s">&#39;Working directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;/myPath/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clustered-data-visualization">
+<h2>3.2. Clustered data visualization<a class="headerlink" href="#clustered-data-visualization" title="Permalink to this headline">¶</a></h2>
+<p>Prior clustering several parameters have to defined in order to control, e.g. memory usage.
+This is done by the kwargs &#8216;minSize_resampling&#8217; and &#8216;minFrequ_resampling&#8217;. Normally, it is not
+obvious how many clusters and communities are finally obtained. Therefore the user can specify
+how many of the top X clusters should be taken into consideration for plotting. Obviously,
+one can not specify a minimum cluster size smaller than the original cluster input parameter.</p>
+<div class="section" id="communities-assignment">
+<h3>3.2.1. Communities assignment<a class="headerlink" href="#communities-assignment" title="Permalink to this headline">¶</a></h3>
+<p>The communities can be plotted using different options.
+Prior any visualization scripts the communities have to be specified.</p>
+<p>This can be done by the <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.build_nodemap" title="pyGCluster.Cluster.build_nodemap"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.build_nodemap()</span></tt></a> function.</p>
+<p>This command create communities from a set of the top 0.5% most frequent
+clusters with a minimum cluster size of 4:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">build_nodemap</span><span class="p">(</span> <span class="n">min_cluster_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">threshold_4_the_lowest_max_freq</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These values can be modified in order to vary the community number and
+composition, the higher the threshold, the less clusters are included, i.e. the
+quality/stringency is increased.</p>
+</div>
+</div>
+<div class="section" id="write-dot-file">
+<h3>3.2.2. Write DOT file<a class="headerlink" href="#write-dot-file" title="Permalink to this headline">¶</a></h3>
+<p>Create the DOT file of the node map showing the cluster composition of the
+communities. A filename can be defined and the number of nodes for the legend.
+The function <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.write_dot" title="pyGCluster.Cluster.write_dot"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.write_dot()</span></tt></a> can be used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">write_dot</span><span class="p">(</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;example_1promilleclusters_minsize4.dot&#39;</span><span class="p">,</span>\
+<span class="gp">... </span><span class="n">n_legend_nodes</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The DOT file can be used as input for e.g. gephi and a nodemap can be build.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/nodemap.png"><img alt="_images/nodemap.png" src="_images/nodemap.png" style="width: 500px;" /></a>
+</div>
+</div>
+<div class="section" id="plot-community-expression-maps">
+<h3>3.2.3. Plot community expression maps<a class="headerlink" href="#plot-community-expression-maps" title="Permalink to this headline">¶</a></h3>
+<p>Draw a expression map showing the protein composition of each community. We set the
+color range to 3 in both directions and choose a predefined color range (&#8216;1337_2&#8217;)
+as shown in the example expressionmap below (link to figure) by using the
+<a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.draw_community_expression_maps" title="pyGCluster.Cluster.draw_community_expression_maps"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_community_expression_maps()</span></tt></a> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">draw_community_expression_maps</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">min_value_4_expression_map</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">max_value_4_expression_map</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">color_gradient</span> <span class="o">=</span> <span class="s">&#39;default&#39;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">One may want to adjust the color range depending on the range of the values
+which should be visualized. The log2 range of 3 fits in the example case for
+proteomics data. When visualizing transcriptomics data, a broader range is
+required.</p>
+</div>
+<p>This example expression map shows an example (Photosystem I community) from the supplied data set of Hoehner et al. (2013)</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/2601-4.png"><img alt="_images/2601-4.png" src="_images/2601-4.png" style="width: 500px;" /></a>
+</div>
+<p>The corresponding legend is plotted as well. The color represents the regulation
+ranging from red (downregulated) over black (unregulated) to green/yellow
+(upregulated)</p>
+<div class="figure align-center">
+<img alt="_images/legend.png" src="_images/legend.png" />
+</div>
+<div class="section" id="color-gradients">
+<h4>3.2.3.1. Color gradients<a class="headerlink" href="#color-gradients" title="Permalink to this headline">¶</a></h4>
+<p>The gradients that are currently part of pyGCluster are</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/All_Legends.png"><img alt="_images/All_Legends.png" src="_images/All_Legends.png" style="width: 500px;" /></a>
+</div>
+<p>Gradients 5 - 13 are taken from Color brewer 2.0 <a class="reference external" href="http://colorbrewer2.org/">http://colorbrewer2.org/</a></p>
+<p>Color gradients are stored in cluster[ &#8216;expression map&#8217;][ &#8216;Color Gradients&#8217; ] and can additionally
+be defined by the user. E.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="p">[</span> <span class="s">&#39;expression map&#39;</span><span class="p">][</span> <span class="s">&#39;Color Gradients&#39;</span> <span class="p">][</span> <span class="s">&#39;myProfile&#39;</span> <span class="p">]</span> <span class="o">=</span>
+<span class="gp">... </span><span class="p">[</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span> <span class="p">))]</span>
+</pre></div>
+</div>
+<p>which would create a new profile with the name myProfile.
+The list contains tuples and within each tuple,
+the first number represents the relative induction to the plotted data set or
+relative to the defined min and max values
+and the second tuple represent the color in r,g,b format (0, .. , 255).</p>
+</div>
+<div class="section" id="box-styles">
+<h4>3.2.3.2. Box styles<a class="headerlink" href="#box-styles" title="Permalink to this headline">¶</a></h4>
+<p>The box styles that are currently part of pyGCluster are</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/All_Box_Styles.png"><img alt="_images/All_Box_Styles.png" src="_images/All_Box_Styles.png" style="width: 500px;" /></a>
+</div>
+<p>The box styles are stored in cluster[ &#8216;expression map&#8217;][ &#8216;SVG box styles&#8217; ]. The general format is
+a string that contains SVG code using Python string format placeholders. E.g.</p>
+<div class="line-block">
+<div class="line">&lt;g id=&#8221;rowPos{0}_conPos{1}&#8221;&gt;</div>
+<div class="line-block">
+<div class="line">&lt;title&gt;{ratio}&amp;#177;{std} - [{x0}.{y0} w:{width} h:{height}&lt;/title&gt;</div>
+<div class="line">&lt;rect x=&#8221;{x0}&#8221; y=&#8221;{y0}&#8221; width=&#8221;{width}&#8221; height=&#8221;{height}&#8221; style=&#8221;fill:rgb({r},{g},{b});stroke:white;stroke-width:1;&#8221; title=&#8221;{ratio}&amp;#177;{std}&#8221; /&gt;</div>
+<div class="line">&lt;rect x=&#8221;{x1}&#8221; y=&#8221;{y1}&#8221; width=&#8221;{widthNew}&#8221; height=&#8221;{heightNew}&#8221; style=&#8221;fill:None;stroke:black;stroke-width:1;&#8221; title=&#8221;{ratio}&amp;#177;{std}&#8221; /&gt;</div>
+</div>
+<div class="line">&lt;/g&gt;</div>
+</div>
+<p>Coordinate definition is:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/Box_Style_Definitions.png"><img alt="_images/Box_Style_Definitions.png" src="_images/Box_Style_Definitions.png" style="width: 500px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="plot-expression-profile">
+<h3>3.2.4. Plot expression profile<a class="headerlink" href="#plot-expression-profile" title="Permalink to this headline">¶</a></h3>
+<p>Expression profile can be plotted for every community, to further visualize the
+overall regulation of all objects in this community, by using the function
+<a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.draw_expression_profiles" title="pyGCluster.Cluster.draw_expression_profiles"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_expression_profiles()</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">draw_expression_profiles</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">min_value_4_expression_map</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">max_value_4_expression_map</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An example of an expression profile is given below.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/ep-2601-4.png"><img alt="_images/ep-2601-4.png" src="_images/ep-2601-4.png" style="width: 500px;" /></a>
+</div>
+</div>
+<div class="section" id="plot-cluster-frequencies">
+<h3>3.2.5. Plot cluster frequencies<a class="headerlink" href="#plot-cluster-frequencies" title="Permalink to this headline">¶</a></h3>
+<p>Frequencies of clusters can be plotted using the
+<a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.plot_clusterfreqs" title="pyGCluster.Cluster.plot_clusterfreqs"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.plot_clusterfreqs()</span></tt></a> function, which also draws a own
+legend:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">plot_clusterfreqs</span><span class="p">(</span> <span class="n">min_cluster_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">top_X_clusters</span> <span class="o">=</span> <span class="mi">33</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The cluster frequency plot is given below.</p>
+<div class="figure align-center">
+<img alt="_images/clusterFreq.png" src="_images/clusterFreq.png" />
+</div>
+<div class="figure align-center">
+<img alt="_images/clusterFreqLegend.png" src="_images/clusterFreqLegend.png" />
+</div>
+</div>
+<div class="section" id="save-results">
+<h3>3.2.6. Save results<a class="headerlink" href="#save-results" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to store the modified pkl file again and save the results for
+further processing steps:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cluster</span><span class="o">.</span><span class="n">save</span><span class="p">(</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;example_1promille_communities.pkl&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">One should be careful about editing essential stuff in the object like the
+&#8216;Data&#8217; entry, because it will be overwritten, once saved.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Usage</a><ul>
+<li><a class="reference internal" href="#clustering">3.1. Clustering</a><ul>
+<li><a class="reference internal" href="#preparing-input-data">3.1.1. preparing input data</a></li>
+<li><a class="reference internal" href="#clustering-using-do-it-all">3.1.2. clustering using do_it_all</a></li>
+<li><a class="reference internal" href="#clustering-using-resample">3.1.3. clustering using resample</a></li>
+<li><a class="reference internal" href="#saving-the-clustered-data">3.1.4. saving the clustered data</a></li>
+<li><a class="reference internal" href="#loading-the-clustered-data">3.1.5. loading the clustered data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clustered-data-visualization">3.2. Clustered data visualization</a><ul>
+<li><a class="reference internal" href="#communities-assignment">3.2.1. Communities assignment</a></li>
+<li><a class="reference internal" href="#write-dot-file">3.2.2. Write DOT file</a></li>
+<li><a class="reference internal" href="#plot-community-expression-maps">3.2.3. Plot community expression maps</a><ul>
+<li><a class="reference internal" href="#color-gradients">3.2.3.1. Color gradients</a></li>
+<li><a class="reference internal" href="#box-styles">3.2.3.2. Box styles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plot-expression-profile">3.2.4. Plot expression profile</a></li>
+<li><a class="reference internal" href="#plot-cluster-frequencies">3.2.5. Plot cluster frequencies</a></li>
+<li><a class="reference internal" href="#save-results">3.2.6. Save results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyGCluster.html"
+                        title="previous chapter">2. Module pyGCluster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="next chapter">4. Example scripts</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/usage.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="4. Example scripts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyGCluster.html" title="2. Module pyGCluster"
+             >previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Daniel Jaeger, Johannes Barth, Anna Niehues and Christian Fufezan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

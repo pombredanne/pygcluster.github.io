@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Example scripts &mdash; pyGCluster 0.18.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.18.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyGCluster 0.18.4 documentation" href="index.html" />
+    <link rel="prev" title="3. Usage" href="usage.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="usage.html" title="3. Usage"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="example-scripts">
+<h1>4. Example scripts<a class="headerlink" href="#example-scripts" title="Permalink to this headline">¶</a></h1>
+<p>This section describes various example scripts to demonstrate pyGCluster</p>
+<div class="section" id="functionality-check">
+<h2>4.1. Functionality check<a class="headerlink" href="#functionality-check" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">After installation, please run the script test_pyGCluster.py from the
+exampleScripts folder to check if pyGCluster was installed properly.</p>
+</div>
+<span class="target" id="module-test_pyGCluster"></span><p>Testscript to demonstrate functionality of pyGCluster</p>
+<p>A synthetic dataset is used to check the correct installation of pyGCluster.
+This dataset cotains 10 ratios (Gene 0-9) which were randonmly sampled between 
+39.5 and 40.5 in 0.1 steps with a low standard deviation (randonmly sampled 
+between 0.1 and 1) and 90 ratios (Gene 10-99) which were randonmly sampled 
+between 3 and 7 in 0.1 steps with a high standard deviation (randonmly sampled 
+between 0.1 and 5)</p>
+<p>5000 iterations are performed and the presence of the most frequent cluster is
+checked.</p>
+<p>This cluster should contain the Genes 0 to 9.</p>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./test_pyGCluster.py</pre>
+</div>
+<p>When the iteration has finished (this should normally take not longer than 20
+seconds), the script asks if you want to stop the iteration process or continue:</p>
+<div class="highlight-python"><pre>iter_max reached. See convergence plot. Stopping re-sampling if not defined 
+otherwise ...
+... plot of convergence finished. 
+See plot in "../exampleFiles/functionalityCheck/convergence_plot.pdf".
+
+Enter how many iterations you would like to continue. 
+(Has to be a multiple of iterstep = 5000)
+(enter "0" to stop resampling.)
+(enter "-1" to resample until iter_max (= 5000) is reached.)
+Enter a number ...</pre>
+</div>
+<p>Please enter 0 and hit enter (The script will stop and the test will finish).</p>
+<p>The results are saved into the folder functionalityCheck.</p>
+<p>Additionally expression maps and expression profiles are plotted.</p>
+</div>
+<div class="section" id="testscripts-to-demonstrate-pygcluster">
+<h2>4.2. Testscripts to demonstrate pyGCluster<a class="headerlink" href="#testscripts-to-demonstrate-pygcluster" title="Permalink to this headline">¶</a></h2>
+<p>The basic script utilizes the function <a class="reference internal" href="pyGCluster.html#pyGCluster.Cluster.do_it_all" title="pyGCluster.Cluster.do_it_all"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.do_it_all()</span></tt></a> whereas the advanced script utilizes single steps to perform the clustering</p>
+<div class="section" id="module-basicClusterHoehnerExampleData">
+<span id="basic-script"></span><h3>4.2.1. Basic script<a class="headerlink" href="#module-basicClusterHoehnerExampleData" title="Permalink to this headline">¶</a></h3>
+<p>Testscript to demonstrate functionality of pyGCluster</p>
+<p>This script imports the data of Hoehner et al. (2013) and executes pyGCluster 
+with 250,000 iterations of resampling. pyGCluster will evoke 4 threads 
+(if possible), which each require approx. 1.5GB RAM. Please make sure you have 
+enough RAM available (4 threads in all require approx. 6GB RAM).
+Duration will be approx. 2 hours to complete 250,000 iterations on 4 threads.</p>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./basicClusterHoehnerExampleData.py &lt;pathToExampleFile&gt;</pre>
+</div>
+<p>If this script is executed in folder pyGCluster/exampleScripts, the command would be:</p>
+<div class="highlight-python"><pre>./basicClusterHoehnerExampleData.py ../exampleFiles/hoehner_dataset.csv</pre>
+</div>
+<p>The results are saved in &#8221;.../pyGCluster/exampleScripts/hoehner_example_run/&#8221;.</p>
+</div>
+<div class="section" id="module-advancedClusterHoehnerExampleData">
+<span id="advanced-script"></span><h3>4.2.2. Advanced script<a class="headerlink" href="#module-advancedClusterHoehnerExampleData" title="Permalink to this headline">¶</a></h3>
+<p>Testscript to demonstrate functionality of pyGCluster</p>
+<p>This script imports the data of Hoehner et al. (2013) and executes pyGCluster 
+with 250,000 iterations of resampling. pyGCluster will evoke 4 threads 
+(if possible), which each require approx. 1.5GB RAM. Please make sure you have 
+enough RAM available (4 threads in all require approx. 6GB RAM).
+Duration will be approx. 2 hours to complete 250,000 iterations on 4 threads.</p>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./advancedClusterHoehnerExampleData.py &lt;pathToExampleFile&gt;</pre>
+</div>
+<p>If this script is executed in folder pyGCluster/exampleScripts, the command would be:</p>
+<div class="highlight-python"><pre>./advancedClusterHoehnerExampleData.py ../exampleFiles/hoehner_dataset.csv</pre>
+</div>
+<p>The results are saved in &#8221;.../pyGCluster/exampleScripts/hoehner_example_run/&#8221;.</p>
+</div>
+</div>
+<div class="section" id="module-plotCommunities">
+<span id="plot-communities-from-a-pygcluster-pkl"></span><h2>4.3. Plot communities from a pyGCluster pkl<a class="headerlink" href="#module-plotCommunities" title="Permalink to this headline">¶</a></h2>
+<p>Plot communities of a given pyGCluster pkl file. All output will be 
+directed into the folder, wehre the input data is located</p>
+<p>The top_X_clusters option can be used to use the top X clusters for community 
+determination.
+The threshold_4_the_lowest_max_freq option define the threshold for the maximum 
+frequency of the clusters which should be incoporated into the community determination.</p>
+<p>Default values are:</p>
+<blockquote>
+<div>-threshold_4_the_lowest_max_freq=0.005</div></blockquote>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./plotCommunities.py &lt;pathTopyGClusterPickle&gt;</pre>
+</div>
+<p>optional:</p>
+<div class="highlight-python"><pre>./plotCommunities.py &lt;pathTopyGClusterPickle&gt; &lt;threshold_4_the_lowest_max_freq=0.005&gt; 
+OR &lt;top_X_clusters=100&gt;</pre>
+</div>
+</div>
+<div class="section" id="module-getpyGPickleInfo">
+<span id="retrieve-pygcluster-pkl-info"></span><h2>4.4. Retrieve pyGCluster pkl info<a class="headerlink" href="#module-getpyGPickleInfo" title="Permalink to this headline">¶</a></h2>
+<p>Get some information from a pyGCluster pkl object</p>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./getpyGPickleInfo.py &lt;MERGED_pyGCluster_pkl_object&gt;</pre>
+</div>
+</div>
+<div class="section" id="module-simpleExpressionMap">
+<span id="plot-simple-expression-map"></span><h2>4.5. Plot simple expression map<a class="headerlink" href="#module-simpleExpressionMap" title="Permalink to this headline">¶</a></h2>
+<p>Testscript to plot a simple heatmap.</p>
+<p>This can be used to visualize the different box styles for the expression maps
+and to test the plotting function.</p>
+<p>This can be also used as a basis to visualize own datasets by simply defining 
+the &#8216;data&#8217; dictionary in this script.</p>
+<p>Usage:</p>
+<div class="highlight-python"><pre>./simpleExpressionMap.py</pre>
+</div>
+</div>
+<div class="section" id="nodemap-and-expression-map-example">
+<h2>4.6. Nodemap and expression map example<a class="headerlink" href="#nodemap-and-expression-map-example" title="Permalink to this headline">¶</a></h2>
+<p>The figures show examples of a nodemap and expression map generated by pyGCluster. The nodemap was taken from the manuscript.</p>
+<div class="section" id="nodemap">
+<h3>4.6.1. Nodemap<a class="headerlink" href="#nodemap" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/_Fig_1_revision.png"><img alt="_images/_Fig_1_revision.png" src="_images/_Fig_1_revision.png" style="width: 500px;" /></a>
+</div>
+</div>
+<div class="section" id="expression-map">
+<h3>4.6.2. Expression map<a class="headerlink" href="#expression-map" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/All_Box_Styles.png"><img alt="_images/All_Box_Styles.png" src="_images/All_Box_Styles.png" style="width: 500px;" /></a>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Example scripts</a><ul>
+<li><a class="reference internal" href="#functionality-check">4.1. Functionality check</a></li>
+<li><a class="reference internal" href="#testscripts-to-demonstrate-pygcluster">4.2. Testscripts to demonstrate pyGCluster</a><ul>
+<li><a class="reference internal" href="#module-basicClusterHoehnerExampleData">4.2.1. Basic script</a></li>
+<li><a class="reference internal" href="#module-advancedClusterHoehnerExampleData">4.2.2. Advanced script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-plotCommunities">4.3. Plot communities from a pyGCluster pkl</a></li>
+<li><a class="reference internal" href="#module-getpyGPickleInfo">4.4. Retrieve pyGCluster pkl info</a></li>
+<li><a class="reference internal" href="#module-simpleExpressionMap">4.5. Plot simple expression map</a></li>
+<li><a class="reference internal" href="#nodemap-and-expression-map-example">4.6. Nodemap and expression map example</a><ul>
+<li><a class="reference internal" href="#nodemap">4.6.1. Nodemap</a></li>
+<li><a class="reference internal" href="#expression-map">4.6.2. Expression map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="usage.html"
+                        title="previous chapter">3. Usage</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/examples.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="usage.html" title="3. Usage"
+             >previous</a> |</li>
+        <li><a href="index.html">pyGCluster 0.18.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Daniel Jaeger, Johannes Barth, Anna Niehues and Christian Fufezan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
