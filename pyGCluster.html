@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -13,7 +15,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '0.18.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -377,15 +379,18 @@ Does not delete the data that is intended to be clustered.</p>
 This is AHC clustering with noise injection and a variety of DLCs,
 in order to identify highly reproducible clusters,
 followed by a meta-clustering of highly reproducible clusters into so-called &#8216;communities&#8217;.</p>
-<p>The functions that are called are:
-<a class="reference internal" href="#pyGCluster.Cluster.resample" title="pyGCluster.Cluster.resample"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.resample()</span></tt></a>,
-<a class="reference internal" href="#pyGCluster.Cluster.build_nodemap" title="pyGCluster.Cluster.build_nodemap"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.build_nodemap()</span></tt></a>,
-<a class="reference internal" href="#pyGCluster.Cluster.write_dot" title="pyGCluster.Cluster.write_dot"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.write_dot()</span></tt></a>,
-<a class="reference internal" href="#pyGCluster.Cluster.draw_community_expression_maps" title="pyGCluster.Cluster.draw_community_expression_maps"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_community_expression_maps()</span></tt></a>,
-<a class="reference internal" href="#pyGCluster.Cluster.draw_expression_profiles" title="pyGCluster.Cluster.draw_expression_profiles"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_expression_profiles()</span></tt></a>.</p>
+<p>The functions that are called are:</p>
 <blockquote>
-<div>For a complete list of possible</div></blockquote>
-<p>Distance matrix calculations
+<div><ul class="simple">
+<li><a class="reference internal" href="#pyGCluster.Cluster.resample" title="pyGCluster.Cluster.resample"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.resample()</span></tt></a></li>
+<li><a class="reference internal" href="#pyGCluster.Cluster.build_nodemap" title="pyGCluster.Cluster.build_nodemap"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.build_nodemap()</span></tt></a></li>
+<li><a class="reference internal" href="#pyGCluster.Cluster.write_dot" title="pyGCluster.Cluster.write_dot"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.write_dot()</span></tt></a></li>
+<li><a class="reference internal" href="#pyGCluster.Cluster.draw_community_expression_maps" title="pyGCluster.Cluster.draw_community_expression_maps"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_community_expression_maps()</span></tt></a></li>
+<li><a class="reference internal" href="#pyGCluster.Cluster.draw_expression_profiles" title="pyGCluster.Cluster.draw_expression_profiles"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_expression_profiles()</span></tt></a></li>
+</ul>
+</div></blockquote>
+<p>For a complete list of possible 
+Distance matrix calculations
 see: <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/spatial.distance.html">http://docs.scipy.org/doc/scipy/reference/spatial.distance.html</a>
 or Linkage methods
 see: <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html">http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html</a></p>
@@ -478,7 +483,7 @@ and the subsequent functions:
 
 <dl class="method">
 <dt id="pyGCluster.Cluster.draw_community_expression_maps">
-<tt class="descname">draw_community_expression_maps</tt><big>(</big><em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='1337'</em>, <em>box_style='classic'</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.draw_community_expression_maps" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">draw_community_expression_maps</tt><big>(</big><em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='1337'</em>, <em>box_style='classic'</em><big>)</big><a class="reference internal" href="_modules/pyGCluster.html#Cluster.draw_community_expression_maps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGCluster.Cluster.draw_community_expression_maps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the expression map for each community showing its object composition.</p>
 <p>The following parameters are passed to <a class="reference internal" href="#pyGCluster.Cluster.draw_expression_map" title="pyGCluster.Cluster.draw_expression_map"><tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.Cluster.draw_expression_map()</span></tt></a>:</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -502,7 +507,7 @@ and the subsequent functions:
 
 <dl class="method">
 <dt id="pyGCluster.Cluster.draw_expression_map">
-<tt class="descname">draw_expression_map</tt><big>(</big><em>identifiers=None</em>, <em>data=None</em>, <em>conditions=None</em>, <em>additional_labels=None</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>expression_map_filename=None</em>, <em>legend_filename=None</em>, <em>color_gradient=None</em>, <em>box_style='classic'</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">draw_expression_map</tt><big>(</big><em>identifiers=None</em>, <em>data=None</em>, <em>conditions=None</em>, <em>additional_labels=None</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>expression_map_filename=None</em>, <em>legend_filename=None</em>, <em>color_gradient=None</em>, <em>box_style='classic'</em><big>)</big><a class="reference internal" href="_modules/pyGCluster.html#Cluster.draw_expression_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws expression map as SVG</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -549,7 +554,7 @@ and the subsequent functions:
 
 <dl class="method">
 <dt id="pyGCluster.Cluster.draw_expression_map_for_cluster">
-<tt class="descname">draw_expression_map_for_cluster</tt><big>(</big><em>clusterID=None</em>, <em>cluster=None</em>, <em>filename=None</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='default'</em>, <em>box_style='classic'</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map_for_cluster" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">draw_expression_map_for_cluster</tt><big>(</big><em>clusterID=None</em>, <em>cluster=None</em>, <em>filename=None</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='default'</em>, <em>box_style='classic'</em><big>)</big><a class="reference internal" href="_modules/pyGCluster.html#Cluster.draw_expression_map_for_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map_for_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots an expression map for a given cluster.
 Either the parameter &#8220;clusterID&#8221; or &#8220;cluster&#8221; can be defined.
 This function is useful to plot a user-defined cluster, e.g. knowledge-based cluster (TCA-cluster, Glycolysis-cluster ...). In this case, the parameter &#8220;cluster&#8221; should be defined.</p>
@@ -588,7 +593,7 @@ This function is useful to plot a user-defined cluster, e.g. knowledge-based clu
 
 <dl class="method">
 <dt id="pyGCluster.Cluster.draw_expression_map_for_community_cluster">
-<tt class="descname">draw_expression_map_for_community_cluster</tt><big>(</big><em>name</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='1337'</em>, <em>sub_folder=None</em>, <em>min_obcofreq_2_plot=None</em>, <em>box_style='classic'</em><big>)</big><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map_for_community_cluster" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">draw_expression_map_for_community_cluster</tt><big>(</big><em>name</em>, <em>min_value_4_expression_map=None</em>, <em>max_value_4_expression_map=None</em>, <em>color_gradient='1337'</em>, <em>sub_folder=None</em>, <em>min_obcofreq_2_plot=None</em>, <em>box_style='classic'</em><big>)</big><a class="reference internal" href="_modules/pyGCluster.html#Cluster.draw_expression_map_for_community_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGCluster.Cluster.draw_expression_map_for_community_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the expression map for a given &#8220;community cluster&#8221;:
 Any cluster in the community node map is internally represented as a tuple with two elements:
 &#8220;cluster&#8221; and &#8220;level&#8221;. Those objects are stored as keys in self[ &#8216;Communities&#8217; ],
@@ -843,9 +848,9 @@ Clusters are sorted by size.</p>
 <dl class="method">
 <dt id="pyGCluster.Cluster.resample">
 <tt class="descname">resample</tt><big>(</big><em>distances</em>, <em>linkages</em>, <em>function_2_generate_noise_injected_datasets=None</em>, <em>min_cluster_size=4</em>, <em>alphabet=None</em>, <em>force_plotting=False</em>, <em>min_cluster_freq_2_retain=0.001</em>, <em>pickle_filename='pyGCluster_resampled.pkl'</em>, <em>cpus_2_use=None</em>, <em>iter_tol=1e-07</em>, <em>iter_step=5000</em>, <em>iter_max=250000</em>, <em>iter_top_P=0.001</em>, <em>iter_window=50000</em>, <em>iter_till_the_end=False</em><big>)</big><a class="reference internal" href="_modules/pyGCluster.html#Cluster.resample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGCluster.Cluster.resample" title="Permalink to this definition">¶</a></dt>
-<dd><p>Routine for the assessment of cluster reproducibility (= &#8216;re-sampling routine&#8217;).
+<dd><p>Routine for the assessment of cluster reproducibility (re-sampling routine).
 To this, a high number of noise-injected datasets are created, which are subsequently clustered by AHC.
-Those are created via :py:func:<a href="#id1"><span class="problematic" id="id2">`</span></a>pyGCluster.function_2_generate_noise_injected_datasets (default = usage of Gaussian distributions).
+Those are created via <tt class="xref py py-func docutils literal"><span class="pre">pyGCluster.function_2_generate_noise_injected_datasets()</span></tt> (default = usage of Gaussian distributions).
 Each &#8216;simulated&#8217; dataset is then subjected to AHC x times, where x equals the number of distance-linkage combinations that come from all possible combinations of &#8220;distances&#8221; and &#8220;linkages&#8221;.
 In order to speed up the re-sampling routine, it is distributed to multiple threads, if cpus_2_use &gt; 1.</p>
 <p>The re-sampling routine stops once either convergence (see below) is detected or iter_max iterations have been performed.
@@ -1143,7 +1148,7 @@ See the example in Supplementary Material in pyGCluster&#8217;s publication for 
     </div>
     <div class="footer">
         &copy; Copyright 2013, Daniel Jaeger, Johannes Barth, Anna Niehues and Christian Fufezan.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

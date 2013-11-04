@@ -17,7 +17,6 @@ The workflow of pyGCluster can be divided in:
     - meta-clustering of highly reproducible clusters into communities, i.e. sets of clusters with a specific overlap
     - visualize results via node maps, expression maps and expression profiles
 
-
 ========================
 Re-sampling & clustering
 ========================
@@ -100,14 +99,14 @@ Download
 ********
 
 Get the latest version via github
-    | https://github.com/pyGCluster/pyGCluster
+    | https://github.com/pygcluster/pyGCluster
 
 or the latest package at
-    | http://pymzml.github.com/dist/pyGCluster.tar.bz2
-    | http://pymzml.github.com/dist/pyGCluster.zip
+    | http://pyGCluster.github.com/dist/pyGCluster.tar.bz2
+    | http://pyGCluster.github.com/dist/pyGCluster.zip
 
 The complete Documentation can be found as pdf
-    | http://pymzml.github.com/dist/pyGCluster.pdf
+    | http://pyGCluster.github.com/dist/pyGCluster.pdf
 
 
 ********

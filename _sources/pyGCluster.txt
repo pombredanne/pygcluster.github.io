@@ -9,6 +9,3 @@ Module pyGCluster
 
 .. automodule:: pyGCluster
    :members:
-
-
-
